@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-30T16:44:43 IST" name="Default suite" finished-at="2022-11-30T16:46:55 IST" duration-ms="131645">
+    <groups>
+    </groups>
+    <test started-at="2022-11-30T16:44:43 IST" name="Default test" finished-at="2022-11-30T16:46:55 IST" duration-ms="131645">
+      <class name="SwagLabs.SwagLabsTest">
+        <test-method signature="homeTest()[pri:1, instance:SwagLabs.SwagLabsTest@9597028]" started-at="2022-11-30T16:44:43 IST" name="homeTest" finished-at="2022-11-30T16:46:19 IST" duration-ms="95762" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homeTest -->
+        <test-method signature="loginTest()[pri:2, instance:SwagLabs.SwagLabsTest@9597028]" started-at="2022-11-30T16:46:19 IST" name="loginTest" finished-at="2022-11-30T16:46:34 IST" duration-ms="15100" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method signature="addToCartTest()[pri:3, instance:SwagLabs.SwagLabsTest@9597028]" started-at="2022-11-30T16:46:34 IST" name="addToCartTest" finished-at="2022-11-30T16:46:37 IST" duration-ms="3128" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addToCartTest -->
+        <test-method signature="CheckoutTest()[pri:4, instance:SwagLabs.SwagLabsTest@9597028]" started-at="2022-11-30T16:46:37 IST" name="CheckoutTest" finished-at="2022-11-30T16:46:55 IST" duration-ms="17309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckoutTest -->
+      </class> <!-- SwagLabs.SwagLabsTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
