@@ -1,5 +1,8 @@
 package SwagLabs;
 
+
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +28,20 @@ public boolean clickOnCart(){
     return status;
     
 }
+public boolean verifyCartContent(List<String>expectedList) {
+	boolean status=false;
+	List<WebElement>cartElements=driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
+	
+    for (WebElement element : cartElements) {
+		if(expectedList.contains(element.getText())){
+			status=true;
+		}
+		else {
+			return status;
+		}
+	}
+	return status;
+}
 
 public boolean checkout(){
     boolean status=false;
@@ -36,8 +53,9 @@ public boolean checkout(){
     else{
     return status;
     }
-    return status;
+    return status;				
 }
+
 
 public boolean address(String firstName1,String lastName1,String zipCodeNumber) throws InterruptedException{
     boolean status=false;

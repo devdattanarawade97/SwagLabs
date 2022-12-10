@@ -4,10 +4,15 @@
 package SwagLabs;
 
 
+import java.util.Arrays;
+import java.util.List;
 
+import org.bouncycastle.util.Objects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,41 +22,67 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class SwagLabsTest {
  WebDriver driver;
     @Test(priority = 1)
-    public void homeTest() throws InterruptedException{
+    @Parameters({"URL"})
+    
+    public void homeTest(String url) throws InterruptedException{
         WebDriverManager.chromedriver().setup();
          driver=new ChromeDriver();
         driver.manage().window().maximize();
         Home home= new Home(driver);
-        boolean actual=home.getHome("https://www.saucedemo.com/");
+        boolean actual=home.getHome(url);
         Assert.assertEquals(actual, true);
         
     }
     @Test(priority = 2)
-    public void loginTest() throws InterruptedException{
+    @Parameters({"Username","Password"})
+    public void loginTest(String user,String pass) throws InterruptedException{
         Login login= new Login(driver);
-        boolean actual=login.loginCart("standard_user","secret_sauce");
-        Assert.assertEquals(actual, true);
+        boolean actual=login.loginCart(user,pass);
+        Assert.assertEquals(actual, true,"login unsuccessful");
         
     }
-    @Test(priority = 3)
-    public void addToCartTest() throws InterruptedException{
+    @DataProvider(name = "productNames")
+    public String[][] buyingProducts(){
+    	
+    	String[][] obj=new String[][]{ {"Sauce Labs Backpack"},{"Sauce Labs Bolt T-Shirt"}};
+    	return obj;
+    }
+    
+    @Test(priority = 3,dataProvider = "productNames")
+    
+    public void addToCartTest(String product1) throws InterruptedException{
+    	
         AddToCart add= new AddToCart(driver);
-        boolean actual=add.addToCart("Sauce Labs Backpack");
-        actual=add.addToCart("Sauce Labs Bolt T-Shirt");
-        Assert.assertEquals(actual, true);
+        boolean actual=add.addToCart(product1);
+        Assert.assertEquals(actual, true,"adding product cart failed");
         
+     
     }
+ 
     @Test(priority = 4)
-    public void CheckoutTest() throws InterruptedException{
+    
+    public void verfifyCartTest() throws InterruptedException{
         Checkout check= new Checkout(driver);
-        boolean actual= check.clickOnCart();     
-        actual= check.checkout();        
-        actual =check.address("Devdatta", "n", "111000");
-        actual= check.order();         //7
-        Assert.assertEquals(actual, true);
-        driver.quit();
+        boolean actual= check.clickOnCart();        
+    	List<String>list= Arrays.asList("Sauce Labs Backpack","Sauce Labs Bolt T-Shirt");
+	     actual=check.verifyCartContent(list);
+		Assert.assertEquals(actual, true,"verfying cart content failed");
+      
         
     }
+    
+    @Test(priority = 5)
+    @Parameters({"FirstName","LastName","Pincode"})
+    public void CheckoutTest(String firstname, String lastname,String pincode) throws InterruptedException {
+    	Checkout check= new Checkout(driver);
+    	boolean actual= check.checkout(); 
+    	Thread.sleep(3000);
+    	 actual =check.address(firstname,lastname,pincode);
+         Assert.assertEquals(actual, true,"adding address failed");
+         actual= check.order();         //7
+         Assert.assertEquals(actual, true,"placing order unsuccessfull");
+         driver.quit();
+	}
 
    
 }

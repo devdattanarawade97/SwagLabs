@@ -1,6 +1,10 @@
 package SwagLabs;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,6 +17,7 @@ public class SwagLabsMain {
     //    this.driver= driver;
     // }
     public static boolean TestCase01(WebDriver driver) throws InterruptedException{
+    	
        boolean status=true;
        driver.manage().window().maximize();
         Home home = new Home(driver);
@@ -25,15 +30,20 @@ public class SwagLabsMain {
         System.out.println("adding to cart");
         add.addToCart("Sauce Labs Backpack");    //3
         add.addToCart("Sauce Labs Bolt T-Shirt");
-        
         Checkout check= new Checkout(driver);
         System.out.println("opening cart");
         check.clickOnCart();     //4
-        check.checkout();        //5
+        List<String>list=new ArrayList<>(Arrays.asList("Sauce Labs Backpack","Sauce Labs Bolt T-Shirt"));
+        status=check.verifyCartContent(list);
+        if(!status) {
+        	System.out.println("verification of cart content successfull :"+status);
+        }
+        System.out.println("verfication of cart content successfull :"+status);
+        check.checkout();        //6
         System.out.println("adding address");
         check.address("Devdatta", "n", "111000");//6
         System.out.println("placing order");
-        check.order();         //7
+        check.order();         //8
         driver.quit();
         return status;
     }
