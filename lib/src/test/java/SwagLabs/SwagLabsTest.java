@@ -22,22 +22,22 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class SwagLabsTest {
  WebDriver driver;
     @Test(priority = 1)
-    @Parameters({"URL"})
+   // @Parameters({"URL"})
     
-    public void homeTest(String url) throws InterruptedException{
+    public void homeTest() throws InterruptedException{
         WebDriverManager.chromedriver().setup();
          driver=new ChromeDriver();
         driver.manage().window().maximize();
         Home home= new Home(driver);
-        boolean actual=home.getHome(url);
+        boolean actual=home.getHome("https://www.saucedemo.com/");
         Assert.assertEquals(actual, true);
         
     }
     @Test(priority = 2)
-    @Parameters({"Username","Password"})
-    public void loginTest(String user,String pass) throws InterruptedException{
+  //  @Parameters({"Username","Password"})
+    public void loginTest() throws InterruptedException{
         Login login= new Login(driver);
-        boolean actual=login.loginCart(user,pass);
+        boolean actual=login.loginCart("standard_user","secret_sauce");
         Assert.assertEquals(actual, true,"login unsuccessful");
         
     }
@@ -72,12 +72,12 @@ public class SwagLabsTest {
     }
     
     @Test(priority = 5)
-    @Parameters({"FirstName","LastName","Pincode"})
-    public void CheckoutTest(String firstname, String lastname,String pincode) throws InterruptedException {
+  //  @Parameters({"FirstName","LastName","Pincode"})
+    public void CheckoutTest() throws InterruptedException {
     	Checkout check= new Checkout(driver);
     	boolean actual= check.checkout(); 
     	Thread.sleep(3000);
-    	 actual =check.address(firstname,lastname,pincode);
+    	 actual =check.address("Devdatta", "n", "111000");
          Assert.assertEquals(actual, true,"adding address failed");
          actual= check.order();         //7
          Assert.assertEquals(actual, true,"placing order unsuccessfull");
