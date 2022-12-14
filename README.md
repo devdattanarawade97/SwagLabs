@@ -2,11 +2,9 @@
 
 to clone this project use following command : git clone https://github.com/devdattanarawade97/SwagLabs.git
 
+and if to run the gradle project use following command : gradle run
 
-after clone to build the project use following command : gradle build
-
-
-to run the project u can use following command: gradle run
+to test the project, directly run the testng.xml
 
 
-u can test  project by using  following command : gradle test
+
