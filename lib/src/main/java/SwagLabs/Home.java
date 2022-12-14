@@ -11,6 +11,7 @@ public class Home {
     public boolean getHome(String url){
        if(!driver.getCurrentUrl().equals(url)){
        driver.get(url);
+      
        }
        return true;
     }

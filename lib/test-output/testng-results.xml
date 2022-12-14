@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-10T18:41:05 IST" name="Suite" finished-at="2022-12-10T18:41:34 IST" duration-ms="29459">
+  <suite started-at="2022-12-14T09:34:08 IST" name="Suite" finished-at="2022-12-14T09:34:37 IST" duration-ms="29586">
     <groups>
     </groups>
-    <test started-at="2022-12-10T18:41:05 IST" name="Test" finished-at="2022-12-10T18:41:34 IST" duration-ms="29459">
+    <test started-at="2022-12-14T09:34:08 IST" name="Test" finished-at="2022-12-14T09:34:37 IST" duration-ms="29586">
       <class name="SwagLabs.SwagLabsTest">
-        <test-method signature="homeTest(java.lang.String)[pri:1, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:05 IST" name="homeTest" finished-at="2022-12-10T18:41:12 IST" duration-ms="7186" status="PASS">
+        <test-method signature="homeTest(java.lang.String)[pri:1, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:08 IST" name="homeTest" finished-at="2022-12-14T09:34:15 IST" duration-ms="7208" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homeTest -->
-        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:2, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:12 IST" name="loginTest" finished-at="2022-12-10T18:41:19 IST" duration-ms="6565" status="PASS">
+        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:2, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:15 IST" name="loginTest" finished-at="2022-12-14T09:34:22 IST" duration-ms="6638" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method signature="addToCartTest(java.lang.String)[pri:3, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:19 IST" name="addToCartTest" data-provider="productNames" finished-at="2022-12-10T18:41:19 IST" duration-ms="476" status="PASS">
+        <test-method signature="addToCartTest(java.lang.String)[pri:3, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:22 IST" name="addToCartTest" data-provider="productNames" finished-at="2022-12-14T09:34:22 IST" duration-ms="463" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -45,7 +45,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartTest -->
-        <test-method signature="addToCartTest(java.lang.String)[pri:3, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:19 IST" name="addToCartTest" data-provider="productNames" finished-at="2022-12-10T18:41:19 IST" duration-ms="327" status="PASS">
+        <test-method signature="addToCartTest(java.lang.String)[pri:3, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:22 IST" name="addToCartTest" data-provider="productNames" finished-at="2022-12-14T09:34:22 IST" duration-ms="281" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -56,11 +56,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCartTest -->
-        <test-method signature="verfifyCartTest()[pri:4, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:19 IST" name="verfifyCartTest" finished-at="2022-12-10T18:41:20 IST" duration-ms="227" status="PASS">
+        <test-method signature="verfifyCartTest()[pri:4, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:22 IST" name="verfifyCartTest" finished-at="2022-12-14T09:34:23 IST" duration-ms="184" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verfifyCartTest -->
-        <test-method signature="CheckoutTest(java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:SwagLabs.SwagLabsTest@4c371370]" started-at="2022-12-10T18:41:20 IST" name="CheckoutTest" finished-at="2022-12-10T18:41:34 IST" duration-ms="14574" status="PASS">
+        <test-method signature="CheckoutTest(java.lang.String,java.lang.String,java.lang.String)[pri:5, instance:SwagLabs.SwagLabsTest@45099dd3]" started-at="2022-12-14T09:34:23 IST" name="CheckoutTest" finished-at="2022-12-14T09:34:37 IST" duration-ms="14662" status="PASS">
           <params>
             <param index="0">
               <value>

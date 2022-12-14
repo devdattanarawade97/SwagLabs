@@ -3,6 +3,8 @@ package SwagLabs;
 
 import java.util.List;
 
+import javax.crypto.BadPaddingException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +37,7 @@ public boolean verifyCartContent(List<String>expectedList) {
     for (WebElement element : cartElements) {
 		if(expectedList.contains(element.getText())){
 			status=true;
+		
 		}
 		else {
 			return status;
@@ -73,6 +76,7 @@ public boolean address(String firstName1,String lastName1,String zipCodeNumber) 
     Thread.sleep(2000);
     if(driver.getCurrentUrl().endsWith("checkout-step-two.html")){
         status= true;
+     
     }
     else{
     return status;
@@ -90,6 +94,7 @@ public boolean order() throws InterruptedException{
     Thread.sleep(2000);
     if(driver.getCurrentUrl().endsWith("checkout-complete.html")){
         status= true;
+        
     }
     }catch(Exception e){
     System.out.println("failed with Exception:"+e.getMessage());

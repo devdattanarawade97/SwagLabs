@@ -24,12 +24,15 @@ public class SwagLabsMain {
         System.out.println("opening website");
         home.getHome("https://www.saucedemo.com/"); //1
         Login login= new Login(driver);
-        System.out.println("login to cart");
-        login.loginCart("standard_user","secret_sauce");//2
+       
+       status= login.loginCart("standard_user","secret_sauce");//2
+       System.out.println("login to cart successfully:"+status);
         AddToCart add= new AddToCart(driver);
-        System.out.println("adding to cart");
-        add.addToCart("Sauce Labs Backpack");    //3
-        add.addToCart("Sauce Labs Bolt T-Shirt");
+        
+        status= add.addToCart("Sauce Labs Backpack");    //3
+        System.out.println("adding Sauce Labs Backpack to cart successfully:"+status);
+        status=add.addToCart("Sauce Labs Bolt T-Shirt");
+        System.out.println("adding Sauce Labs Bolt T-Shirt to cart successfully:"+status);
         Checkout check= new Checkout(driver);
         System.out.println("opening cart");
         check.clickOnCart();     //4
@@ -40,10 +43,10 @@ public class SwagLabsMain {
         }
         System.out.println("verfication of cart content successfull :"+status);
         check.checkout();        //6
-        System.out.println("adding address");
-        check.address("Devdatta", "n", "111000");//6
-        System.out.println("placing order");
-        check.order();         //8
+        status= check.address("Devdatta", "n", "111000");//6
+        System.out.println("adding address successfull :"+status);
+        status= check.order();         //8
+        System.out.println("placing order successfull :"+status);
         driver.quit();
         return status;
     }

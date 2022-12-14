@@ -25,7 +25,7 @@ public class Login {
         Thread.sleep(2000);
         if(driver.getCurrentUrl().endsWith("inventory.html")){
             status= true;
-            System.out.println("login successful");
+          
         }
         
     }catch(Exception e){
