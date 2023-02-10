@@ -31,15 +31,20 @@ public class SwagLabsTest {
         Home home= new Home(driver);
         boolean actual=home.getHome("https://www.saucedemo.com/");
         Assert.assertEquals(actual, true);
+        System.out.println("opened url");
         
     }
+    
     @Test(priority = 2)
    // @Parameters({"Username","Password"})
     public static void loginTest() throws InterruptedException{
         Login login= new Login(driver);
         boolean actual=login.loginCart("standard_user", "secret_sauce");
         Assert.assertEquals(actual, true,"login unsuccessful");
+        System.out.println("login successful");
         
+        
+
     }
     @DataProvider(name = "productNames")
     public static String[][] buyingProducts(){
@@ -55,7 +60,7 @@ public class SwagLabsTest {
         AddToCart add= new AddToCart(driver);
         boolean actual=add.addToCart(product1);
         Assert.assertEquals(actual, true,"adding product cart failed");
-        
+        System.out.println("added product to cart");
      
     }
  
@@ -83,6 +88,7 @@ public class SwagLabsTest {
          Assert.assertEquals(actual, true,"adding address failed");
          actual= check.order();         //7
          Assert.assertEquals(actual, true,"placing order unsuccessfull");
+         System.out.println("placed order successfully");
          driver.quit();
 	}
 

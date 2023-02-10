@@ -31,10 +31,14 @@ testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
     
 }
 
-tasks.named('test') {
+tasks.named('test',Test) {
     // Use JUnit Platform for unit tests.
     useTestNG() { }
     //D:\new\SwagLabs\lib\testng.xml
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+
 }
 
 application {
