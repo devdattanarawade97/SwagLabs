@@ -34,7 +34,7 @@ public class SwagLabsTest {
         System.out.println("opened url");
         
     }
-    
+
     @Test(priority = 2)
    // @Parameters({"Username","Password"})
     public static void loginTest() throws InterruptedException{
@@ -62,6 +62,7 @@ public class SwagLabsTest {
         Assert.assertEquals(actual, true,"adding product cart failed");
         System.out.println("added product to cart");
      
+        
     }
  
     @Test(priority = 4)
@@ -73,7 +74,7 @@ public class SwagLabsTest {
     	List<String>list= Arrays.asList("Sauce Labs Backpack","Sauce Labs Bolt T-Shirt");
 	     actual=check.verifyCartContent(list);
 		Assert.assertEquals(actual, true,"verfying cart content failed");
-      
+      System.out.println("verified product in cart");
         
     }
     

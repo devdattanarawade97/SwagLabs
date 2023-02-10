@@ -38,7 +38,9 @@ tasks.named('test',Test) {
     beforeTest { descriptor ->
         logger.lifecycle("Running test: " + descriptor)
     }
-
+     testLogging{
+        events 'PASSED',"FAILED"
+     }
 }
 
 application {
