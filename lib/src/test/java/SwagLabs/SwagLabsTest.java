@@ -20,29 +20,29 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class SwagLabsTest {
- WebDriver driver;
+ static WebDriver driver;
     @Test(priority = 1)
-    @Parameters({"URL"})
+   //  @Parameters({"URL"})
     
-    public void homeTest(String urlString ) throws InterruptedException{
+    public static void homeTest() throws InterruptedException{
         WebDriverManager.chromedriver().setup();
          driver=new ChromeDriver();
         driver.manage().window().maximize();
         Home home= new Home(driver);
-        boolean actual=home.getHome(urlString);
+        boolean actual=home.getHome("https://www.saucedemo.com/");
         Assert.assertEquals(actual, true);
         
     }
     @Test(priority = 2)
-    @Parameters({"Username","Password"})
-    public void loginTest(String user,String pass) throws InterruptedException{
+   // @Parameters({"Username","Password"})
+    public static void loginTest() throws InterruptedException{
         Login login= new Login(driver);
-        boolean actual=login.loginCart(user, pass);
+        boolean actual=login.loginCart("standard_user", "secret_sauce");
         Assert.assertEquals(actual, true,"login unsuccessful");
         
     }
     @DataProvider(name = "productNames")
-    public String[][] buyingProducts(){
+    public static String[][] buyingProducts(){
     	
     	String[][] obj=new String[][]{ {"Sauce Labs Backpack"},{"Sauce Labs Bolt T-Shirt"}};
     	return obj;
@@ -50,7 +50,7 @@ public class SwagLabsTest {
     
     @Test(priority = 3,dataProvider = "productNames")
     
-    public void addToCartTest(String product1) throws InterruptedException{
+    public static void addToCartTest(String product1) throws InterruptedException{
     	
         AddToCart add= new AddToCart(driver);
         boolean actual=add.addToCart(product1);
@@ -61,9 +61,10 @@ public class SwagLabsTest {
  
     @Test(priority = 4)
     
-    public void verfifyCartTest() throws InterruptedException{
+    public static void verfifyCartTest() throws InterruptedException{
         Checkout check= new Checkout(driver);
-        boolean actual= check.clickOnCart();        
+        boolean actual= check.clickOnCart(); 
+        Thread.sleep(3000);       
     	List<String>list= Arrays.asList("Sauce Labs Backpack","Sauce Labs Bolt T-Shirt");
 	     actual=check.verifyCartContent(list);
 		Assert.assertEquals(actual, true,"verfying cart content failed");
@@ -72,12 +73,13 @@ public class SwagLabsTest {
     }
     
     @Test(priority = 5)
-    @Parameters({"FirstName","LastName","Pincode"})
-    public void CheckoutTest(String firstname, String lastname, String pincode) throws InterruptedException {
-    	Checkout check= new Checkout(driver);
+ //   @Parameters({"FirstName","LastName","Pincode"})
+    public static void CheckoutTest() throws InterruptedException {
+    	Thread.sleep(3000);
+        Checkout check= new Checkout(driver);
     	boolean actual= check.checkout(); 
     	Thread.sleep(3000);
-    	 actual =check.address(firstname,lastname,pincode);
+    	 actual =check.address("dev","123","123");
          Assert.assertEquals(actual, true,"adding address failed");
          actual= check.order();         //7
          Assert.assertEquals(actual, true,"placing order unsuccessfull");

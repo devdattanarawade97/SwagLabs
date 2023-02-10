@@ -33,8 +33,8 @@ testImplementation group: 'org.testng', name: 'testng', version: '7.6.1'
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
-    useTestNG() {'lib/testng.xml'}
-    
+    useTestNG() { }
+    //D:\new\SwagLabs\lib\testng.xml
 }
 
 application {
